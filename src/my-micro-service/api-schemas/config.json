@@ -1,0 +1,39 @@
+{
+    "dependencies": [
+        {
+            "name": "user_login",
+            "path": "./gql/user_login.json",
+            "type": "Query"
+        },
+        {
+            "name": "user_signup",
+            "path": "./gql/user_signup.json",
+            "type": "mutation"
+        },
+        {
+            "name": "admin_login",
+            "path": "./gql/admin_login.json",
+            "type": "Query"
+        },
+        {
+            "name": "admin_signup",
+            "path": "./gql/admin_signup.json",
+            "type": "mutation"
+        },
+        {
+            "name": "health",
+            "path": "./gql/health_API.json",
+            "type": "Query"
+        },
+        {
+            "name": "admin_wallet",
+            "path": "./gql/admin_wallet.json",
+            "type": "mutation"
+        },
+        {
+            "name": "wallet_listing",
+            "path": "./gql/wallet_listing.json",
+            "type": "Query"
+        }
+    ]
+}
