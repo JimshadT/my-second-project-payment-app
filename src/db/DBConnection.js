@@ -1,8 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/**
- * Created by rohittalwar on 04/05/16.
- */
 const mongoose = require("mongoose");
 const AppConfigUtil_1 = require("../config/AppConfigUtil");
 class DBConnection {
@@ -38,7 +35,7 @@ class DBConnection {
     static async connectToPath(url) {
         let options = AppConfigUtil_1.default.get("db:auth") ? (await DBConnection.connectionOptions()) : {};
         return new Promise((resolve, reject) => {
-            mongoose.connect(url, Object.assign(Object.assign({}, options), { useNewUrlParser: true })).then(resolve, reject);
+            mongoose.connect(url, Object.assign(Object.assign({}, options), { useNewUrlParser: true, useUnifiedTopology: true })).then(resolve, reject);
         });
     }
     static async connectionOptions() {

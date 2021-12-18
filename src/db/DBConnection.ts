@@ -1,11 +1,13 @@
-/**
- * Created by rohittalwar on 04/05/16.
- */
+
+
 import * as mongoose from 'mongoose';
 import AppConfigUtil from '../config/AppConfigUtil';
 
+
 export default class DBConnection {
 
+
+    
     static async dbHost(): Promise<string> {
         let mongoUrl;
         try {
@@ -42,7 +44,7 @@ export default class DBConnection {
         let options: mongoose.ConnectionOptions = AppConfigUtil.get("db:auth") ? (await DBConnection.connectionOptions()) : {};
 
         return new Promise((resolve, reject) => {
-            mongoose.connect(url, { ...options, useNewUrlParser: true }).then(resolve, reject);
+            mongoose.connect(url, { ...options, useNewUrlParser: true,useUnifiedTopology: true }).then(resolve, reject);
         })
     }
 

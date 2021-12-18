@@ -4,6 +4,8 @@ import user_signup from "./mappgql apis/user_signup";
 import user_login from "./mappgql apis/user_login";
 import admin_wallet from "./mappgql apis/admin_wallet";
 import wallet_listing from "./mappgql apis/wallet_listing";
+import { verifyUser } from "./Decorators/verify_user_token";
+import Config from "./config"
 
 export default class MAPPGQL {
     params: any;
@@ -13,6 +15,8 @@ export default class MAPPGQL {
 
     async health() {
         return { status: "ok" };
+        
+        
     }
 
     async user_signup(args: any, req: any){
@@ -20,6 +24,7 @@ export default class MAPPGQL {
     }
 
     async user_login(args: any, req: any){
+        
         return await user_login(args,req)
     }
     
@@ -35,7 +40,8 @@ export default class MAPPGQL {
         return await admin_wallet(args,req)
     }
 
-    async awallet_listing(args: any, req: any){
+    //@verifyUser(Config.get("account_type:user"))
+    async wallet_listing(args: any, req: any,user:any){
         return await wallet_listing(args,req)
     }
 
