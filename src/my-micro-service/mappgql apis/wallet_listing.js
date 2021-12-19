@@ -4,7 +4,7 @@ const wallets_1 = require("../db-schemas/wallets");
 const Error_Handler_1 = require("../helpers/Error_Handler");
 const { GraphQLError } = require("graphql");
 const jwt = require("jsonwebtoken");
-const wallet_listing = async (args, req) => {
+const wallet_listing = async (args, req, user) => {
     try {
         let tok = await req.headers["x-access-token"];
         let decoded = await jwt.verify(tok, "secret101");

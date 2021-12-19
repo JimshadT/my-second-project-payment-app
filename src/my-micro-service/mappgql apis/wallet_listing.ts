@@ -4,7 +4,7 @@ const { GraphQLError } = require("graphql");
 const jwt = require("jsonwebtoken");
 
 
-const wallet_listing = async (args:any,req:any) => {
+const wallet_listing = async (args:any,req:any,user:any) => {
     try{
         let tok = await req.headers["x-access-token"];
         let decoded:any = await jwt.verify(tok, "secret101")  

@@ -36,13 +36,14 @@ export default class MAPPGQL {
         return await admin_login(args,req)
     }
 
-    async admin_wallet(args: any, req: any){
-        return await admin_wallet(args,req)
+    //@verifyUser(Config.get("account_type:user"))
+    async admin_wallet(args: any, req: any, user:any){
+        return await admin_wallet(args,req,user)
     }
 
     //@verifyUser(Config.get("account_type:user"))
     async wallet_listing(args: any, req: any,user:any){
-        return await wallet_listing(args,req)
+        return await wallet_listing(args,req,user)
     }
 
 

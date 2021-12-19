@@ -6,15 +6,15 @@ const { GraphQLError } = require("graphql");
 
 
 
-const admin_wallet = async (args:any,req:any) => {
+const admin_wallet = async (args:any,req:any,user:any) => {
     try{    
-        let decoded:any = verifyUser(req) 
-        console.log("here");
+        // let decoded:any = verifyUser(req) 
+         console.log("here");
         
-        let obj = await admins.findOne({ _id: decoded._id }).lean().exec();
-console.log("here2");
+        let obj = await admins.findOne({ _id: user._id }).lean().exec();
+         console.log("here2");
 
-        myAssert(obj===null,"user authentication failed")
+        //myAssert(obj===null,"user authentication failed")
 
             wallets.updateOne(args, { $set: { ...args,created_by: obj._id } }, { upsert: true }).exec();
             return { message: "admin wallet created",  };

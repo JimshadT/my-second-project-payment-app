@@ -25,11 +25,13 @@ class MAPPGQL {
     async admin_login(args, req) {
         return await admin_login_1.default(args, req);
     }
-    async admin_wallet(args, req) {
-        return await admin_wallet_1.default(args, req);
+    //@verifyUser(Config.get("account_type:user"))
+    async admin_wallet(args, req, user) {
+        return await admin_wallet_1.default(args, req, user);
     }
-    async awallet_listing(args, req) {
-        return await wallet_listing_1.default(args, req);
+    //@verifyUser(Config.get("account_type:user"))
+    async wallet_listing(args, req, user) {
+        return await wallet_listing_1.default(args, req, user);
     }
 }
 exports.default = MAPPGQL;
